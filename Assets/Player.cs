@@ -27,6 +27,6 @@ public class Player : MonoBehaviour {
 		Vector2 direction = new Vector2 (x, y).normalized;
 		
 		// 移動する向きとスピードを代入する
-		rigidbody2D.velocity = direction * speed;
+		GetComponent<Rigidbody2D>().velocity = direction * speed;
 	}
 }
