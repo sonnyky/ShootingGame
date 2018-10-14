@@ -7,11 +7,7 @@ public class Bullet : MonoBehaviour {
 	void Start () {
 		
 	}
-
-    private void OnEnable()
-    {
-        //GetComponent<Rigidbody2D>().velocity = transform.up.normalized * speed;
-    }
+    
 
     // Update is called once per frame
     void Update () {
@@ -27,4 +23,10 @@ public class Bullet : MonoBehaviour {
         Vector3 screenPoint = Camera.main.WorldToViewportPoint(transform.position);
         return screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        gameObject.SetActive(false);
+    }
+
 }

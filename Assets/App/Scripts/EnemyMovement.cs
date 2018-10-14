@@ -27,7 +27,7 @@ public class EnemyMovement : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("collision with : " + collision.gameObject.name);
+        //Debug.Log("collision with : " + collision.gameObject.name);
     }
 
 }

@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - NormalBullet
   - Enemy_Fighter
   - Explosion
+  - Bullet_Normal
   layers:
   - Default
   - TransparentFX
