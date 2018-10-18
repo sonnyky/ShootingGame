@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 61185042998966064}
   m_Layer: 8
   m_Name: PlayerBullet
-  m_TagString: Bullet_Normal
+  m_TagString: Shot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,7 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0312282c046425b9c0a8b838b9122f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  m_damage: 1
+  speed: 5
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

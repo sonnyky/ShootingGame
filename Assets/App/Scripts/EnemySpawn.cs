@@ -40,5 +40,6 @@ public class EnemySpawn : MonoBehaviour {
         Vector3 spawnPoint = new Vector3(Random.Range(-1f, 1f), 1.5f, 0f);
         enemyInstance.transform.position = spawnPoint;
         enemyInstance.gameObject.SetActive(true);
+        enemyInstance.gameObject.GetComponent<Ship>().InitializeParameters();
     }
 }

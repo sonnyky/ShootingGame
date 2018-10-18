@@ -8,7 +8,7 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	IEnumerator Start () {
 		while (true) {
-            GameObject bullet = ObjectPooler.SharedInstance.GetPooledObject("Bullet_Normal");
+            GameObject bullet = ObjectPooler.SharedInstance.GetPooledObject("Shot");
             bullet.transform.position = transform.position;
             bullet.transform.rotation = transform.rotation;
             bullet.SetActive(true);

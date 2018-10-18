@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Enemy_Fighter
   - Explosion
-  - Bullet_Normal
+  - Shot
   layers:
   - Default
   - TransparentFX

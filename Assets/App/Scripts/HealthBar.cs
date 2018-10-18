@@ -4,37 +4,40 @@ using System.Collections;
 public class HealthBar : MonoBehaviour
 {
     private Vector3 curScale;
+    private Vector3 maxScale;
+    private Vector3 initialPosition;
 
     Renderer barRenderer;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         barRenderer = GetComponent<Renderer>();
-        curScale = gameObject.transform.localScale;
+        maxScale = transform.localScale;
+        curScale = maxScale;
+        initialPosition = transform.localPosition;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    
     public void HitPointReduceTo(float scale)
     {
-        float originalValue = barRenderer.bounds.min.y;
-        Debug.Log("original value : " + originalValue);
-        curScale.y = scale * curScale.y;
-        gameObject.transform.localScale = curScale;
+        float originalValue = barRenderer.bounds.min.x;
+        curScale.x = scale * maxScale.x;
+        transform.localScale = curScale;
 
-        float newValue = barRenderer.bounds.min.y;
-        Debug.Log("new value : " + newValue);
+        //Debug.Log("cur scale : " + curScale + " and new scale");
+        float newValue = barRenderer.bounds.min.x;
 
         //calculate difference
         float difference = newValue - originalValue;
 
         //move the bar to the left
-        transform.Translate(new Vector3(-0f, -difference, 0f));
+        transform.Translate(new Vector3(-difference, 0f, 0f));
+    }
 
+    public void ResetToMax()
+    {
+        transform.localScale = maxScale;
+        transform.localPosition = initialPosition;
     }
 }

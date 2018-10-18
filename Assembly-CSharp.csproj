@@ -63,12 +63,15 @@
   <ItemGroup>
     <Compile Include="Assets\App\Bullet.cs" />
     <Compile Include="Assets\App\Player.cs" />
-    <Compile Include="Assets\App\Scripts\EnemyMovement.cs" />
+    <Compile Include="Assets\App\Scripts\Enemy.cs" />
     <Compile Include="Assets\App\Scripts\EnemySpawn.cs" />
     <Compile Include="Assets\App\Scripts\HealthBar.cs" />
     <Compile Include="Assets\App\Scripts\Helper\Utilities.cs" />
     <Compile Include="Assets\App\Scripts\ObjectPooler.cs" />
+    <Compile Include="Assets\App\Scripts\States\Destroyed.cs" />
+    <Compile Include="Assets\App\Scripts\States\Initialize.cs" />
     <Compile Include="Assets\App\Scripts\States\Ship.cs" />
+    <Compile Include="Assets\App\Scripts\States\Shot.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Workspace/ShootingGame/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
@@ -312,6 +315,12 @@
     <Reference Include="Boo.Lang">
       <HintPath>D:/Applications/Unity2018.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/Boo.Lang.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{14E62AB1-89FC-D4C5-D7F0-6045686AFEC5}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
