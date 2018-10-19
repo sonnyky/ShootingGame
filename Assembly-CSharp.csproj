@@ -65,12 +65,14 @@
     <Compile Include="Assets\App\Player.cs" />
     <Compile Include="Assets\App\Scripts\Enemy.cs" />
     <Compile Include="Assets\App\Scripts\EnemySpawn.cs" />
+    <Compile Include="Assets\App\Scripts\Explosion.cs" />
     <Compile Include="Assets\App\Scripts\HealthBar.cs" />
     <Compile Include="Assets\App\Scripts\Helper\Utilities.cs" />
     <Compile Include="Assets\App\Scripts\ObjectPooler.cs" />
     <Compile Include="Assets\App\Scripts\RevolvingBackground.cs" />
     <Compile Include="Assets\App\Scripts\States\Destroyed.cs" />
     <Compile Include="Assets\App\Scripts\States\Initialize.cs" />
+    <Compile Include="Assets\App\Scripts\States\Moving.cs" />
     <Compile Include="Assets\App\Scripts\States\Ship.cs" />
     <Compile Include="Assets\App\Scripts\States\Shot.cs" />
     <Reference Include="UnityEditor.StandardEvents">

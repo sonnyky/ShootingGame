@@ -12,24 +12,30 @@ public class Ship : MonoBehaviour {
     private StateManager<Ship> currentState;
     public StateManager<Ship> previousState;
 
+    internal float speed = 5f;
 
     internal Destroyed m_DestroyedState;
-    internal Initialize m_InitializeState;
+    internal Moving m_MovingState;
 
     private void Awake()
     {
         m_HealthBar = transform.Find("HealthBar").GetComponent<HealthBar>();
       
         m_DestroyedState = new Destroyed(this);
-        m_InitializeState = new Initialize(this);
+        m_MovingState = new Moving(this);
     }
 
     public void InitializeParameters()
     {
         m_CurrentHealth = m_MaxHealth;
         m_HealthBar.ResetToMax();
+        SetState(m_MovingState);
     }
-    
+
+    public void MoveShip(float speed)
+    {
+        transform.position += transform.up * Time.deltaTime *speed;
+    }
 
     public void SetState(StateManager<Ship> nextState)
     {
@@ -41,7 +47,10 @@ public class Ship : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        currentState.Tick();
+        if (currentState != null)
+        {
+            currentState.Tick();
+        }
 	}
 
     internal bool IsInViewport()
@@ -63,10 +72,18 @@ public class Ship : MonoBehaviour {
 
             if (m_CurrentHealth <= 0f)
             {
+                ExplosionEffect();
                 SetState(m_DestroyedState);
             }
 
         }
+    }
+
+    public void ExplosionEffect()
+    {
+        GameObject explosion = ObjectPooler.SharedInstance.GetPooledObject("Eff_Explosion");
+        explosion.transform.position = transform.position;
+        explosion.SetActive(true);
     }
 
     public void Disable()
