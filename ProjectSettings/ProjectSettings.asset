@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Unity Technologies Japan G.K
+  companyName: Tinker
   productName: ShootingGame
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -151,7 +151,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.kyusyukeigo.test
+    Android: com.tinker.shootinggame
     Standalone: unity.Unity Technologies Japan G.K.ShootingGame
     iOS: com.kyusyukeigo.test
     tvOS: com.kyusyukeigo.test

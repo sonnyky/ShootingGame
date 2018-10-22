@@ -47,10 +47,10 @@ public class Player : MonoBehaviour {
     public bool MoveAreaLimit(float xDir, float yDir)
     {
        
-        Vector2 min = Camera.main.WorldToViewportPoint(transform.position - m_ShipBoundary.min);
-        Vector2 max = Camera.main.WorldToViewportPoint(transform.position - m_ShipBoundary.max);
+        Vector2 min = Camera.main.WorldToViewportPoint(transform.position + m_ShipBoundary.min);
+        Vector2 max = Camera.main.WorldToViewportPoint(transform.position + m_ShipBoundary.max);
 
-        return (min.x < 0.05f && xDir < 0) || (min.y < 0.1f && yDir < 0) || (max.x > 0.95f && xDir > 0) || (max.y > 0.9f && yDir > 0) ? true : false;
+        return (min.x < 0f && xDir < 0) || (min.y < 0f && yDir < 0) || (max.x > 1f && xDir > 0) || (max.y > 1f && yDir > 0) ? true : false;
     }
     
 
