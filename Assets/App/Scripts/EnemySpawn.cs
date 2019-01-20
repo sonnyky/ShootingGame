@@ -19,6 +19,8 @@ public class EnemySpawn : MonoBehaviour {
     JobHandle moveHandle;
 
 
+    public int enemyCount = 0;
+
     public enum Enemies
     {
         ENEMY_FIGHTER
@@ -46,7 +48,7 @@ public class EnemySpawn : MonoBehaviour {
     void Start () {
         transforms = new TransformAccessArray(0, -1);
         InvokeRepeating("AddShips", spawnTime, spawnTime);
-
+        //AddShips();
     }
 
     // Update is called once per frame
@@ -60,6 +62,8 @@ public class EnemySpawn : MonoBehaviour {
             bottomBound = bottomBound,
             deltaTime = Time.deltaTime
         };
+
+        //Debug.Log("enemySpeed and deltaTime : " + enemySpeed + ", " + Time.deltaTime);
 
         moveHandle = moveJob.Schedule(transforms);
         JobHandle.ScheduleBatchedJobs();
@@ -78,9 +82,16 @@ public class EnemySpawn : MonoBehaviour {
             Vector3 spawnPoint = new Vector3(Random.Range(-1f, 1f), 1.5f, 0f);
             enemyInstance.transform.position = spawnPoint;
             enemyInstance.gameObject.SetActive(true);
-            //enemyInstance.gameObject.GetComponent<Ship>().InitializeParameters();
+            enemyInstance.gameObject.GetComponent<Ship>().InitializeParameters();
 
-            transforms.Add(enemyInstance.transform);
+            // If the instance is using an available pooled object, do not add to the job queue again.
+            if (enemyInstance.name.Split('(').Length > 1)
+            {
+                transforms.Add(enemyInstance.transform);
+            }
+
+            enemyInstance.name = "Enemy" + enemyCount.ToString();
+            enemyCount++;
 
         }
     }

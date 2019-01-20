@@ -14,7 +14,6 @@ public class Moving : StateManager<Ship>
 
     public override void Tick()
     {
-        targetObject.MoveShip(targetObject.speed);
 
     }
 
