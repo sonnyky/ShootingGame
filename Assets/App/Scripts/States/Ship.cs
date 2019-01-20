@@ -29,7 +29,7 @@ public class Ship : MonoBehaviour {
     {
         m_CurrentHealth = m_MaxHealth;
         m_HealthBar.ResetToMax();
-        SetState(m_MovingState);
+        //SetState(m_MovingState);
     }
 
     public void MoveShip(float speed)
