@@ -14,7 +14,7 @@ public class Moving : StateManager<Ship>
 
     public override void Tick()
     {
-
+        targetObject.Move();
     }
 
     public override void OnStateEnter()

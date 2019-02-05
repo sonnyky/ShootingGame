@@ -7,4 +7,12 @@ public class Enemy : Ship {
 	void Start () {
         speed = -1f;
 	}
+
+    /// <summary>
+    /// Called when the enemy state is moving.
+    /// </summary>
+    public override void Move()
+    {
+        
+    }
 }

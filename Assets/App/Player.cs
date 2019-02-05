@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player : MonoBehaviour {
-	public float speed = 5;
+public class Player : Ship {
 
     Vector2 direction;
 
@@ -11,14 +10,17 @@ public class Player : MonoBehaviour {
 	// PlayerBulletプレハブ
 	public GameObject bullet;
 
-    private void Awake()
-    {
-        direction = new Vector2();
-        m_ShipBoundary = GetComponent<Renderer>().bounds;
-    }
-
     // Use this for initialization
     IEnumerator Start () {
+
+        direction = new Vector2();
+        m_ShipBoundary = GetComponent<Renderer>().bounds;
+
+        m_DestroyedState = new Destroyed(this);
+        m_MovingState = new Moving(this);
+
+        InitializeParameters();
+
 		while (true) {
             GameObject bullet = ObjectPooler.SharedInstance.GetPooledObject("Shot");
             bullet.transform.position = transform.position;
@@ -27,15 +29,15 @@ public class Player : MonoBehaviour {
 			yield return new WaitForSeconds (0.05f);
 		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		float x = Input.GetAxisRaw ("Horizontal");
-		float y = Input.GetAxisRaw ("Vertical");
 
+    public override void Move()
+    {
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
+        Debug.Log("player ship moving");
         if (!MoveAreaLimit(x, y))
         {
-            direction = new Vector2(x, y).normalized;            
+            direction = new Vector2(x, y).normalized;
         }
         else
         {

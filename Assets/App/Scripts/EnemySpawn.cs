@@ -48,7 +48,6 @@ public class EnemySpawn : MonoBehaviour {
     void Start () {
         transforms = new TransformAccessArray(0, -1);
         InvokeRepeating("AddShips", spawnTime, spawnTime);
-        //AddShips();
     }
 
     // Update is called once per frame
@@ -95,17 +94,4 @@ public class EnemySpawn : MonoBehaviour {
 
         }
     }
-    /*
-    void Spawn()
-    {
-        Enemies enemy = Tinker.Utilites.RandomEnumValue<Enemies>();
-        string enemyTag = GetObjectTag(enemy);
-        GameObject enemyInstance = ObjectPooler.SharedInstance.GetPooledObject(enemyTag);
-
-        Vector3 spawnPoint = new Vector3(Random.Range(-1f, 1f), 1.5f, 0f);
-        enemyInstance.transform.position = spawnPoint;
-        enemyInstance.gameObject.SetActive(true);
-        enemyInstance.gameObject.GetComponent<Ship>().InitializeParameters();
-    }
-    */
 }

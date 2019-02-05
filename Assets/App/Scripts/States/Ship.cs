@@ -74,6 +74,11 @@ public class Ship : MonoBehaviour {
         }
     }
 
+    public virtual void Move()
+    {
+        
+    }
+
     public void ExplosionEffect()
     {
         GameObject explosion = ObjectPooler.SharedInstance.GetPooledObject("Eff_Explosion");
