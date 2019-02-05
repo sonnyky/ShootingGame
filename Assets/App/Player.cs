@@ -34,7 +34,7 @@ public class Player : Ship {
     {
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
-        Debug.Log("player ship moving");
+
         if (!MoveAreaLimit(x, y))
         {
             direction = new Vector2(x, y).normalized;
