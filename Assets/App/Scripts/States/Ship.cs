@@ -57,9 +57,9 @@ public class Ship : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision)
     {
         string incomingTag = collision.gameObject.tag;
-        if (collision.gameObject.CompareTag("Shot"))
+        if (collision.gameObject.CompareTag("Projectile"))
         {
-            float damage = collision.gameObject.GetComponent<Shot>().GetDamage();
+            float damage = collision.transform.GetComponentInParent<Shot>().GetDamage();
 
             m_CurrentHealth -= damage;
             m_HealthBar.HitPointReduceTo(m_CurrentHealth/m_MaxHealth);

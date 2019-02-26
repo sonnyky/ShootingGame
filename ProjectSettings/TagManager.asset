@@ -8,6 +8,7 @@ TagManager:
   - Explosion
   - Shot
   - Eff_Explosion
+  - Projectile
   layers:
   - Default
   - TransparentFX
