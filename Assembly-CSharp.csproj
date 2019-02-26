@@ -73,11 +73,12 @@
     <Compile Include="Assets\App\Scripts\MovementJob.cs" />
     <Compile Include="Assets\App\Scripts\ObjectPooler.cs" />
     <Compile Include="Assets\App\Scripts\RevolvingBackground.cs" />
+    <Compile Include="Assets\App\Scripts\Scatter.cs" />
+    <Compile Include="Assets\App\Scripts\Shot.cs" />
     <Compile Include="Assets\App\Scripts\States\Destroyed.cs" />
     <Compile Include="Assets\App\Scripts\States\Initialize.cs" />
     <Compile Include="Assets\App\Scripts\States\Moving.cs" />
     <Compile Include="Assets\App\Scripts\States\Ship.cs" />
-    <Compile Include="Assets\App\Scripts\States\Shot.cs" />
     <Compile Include="Assets\EasyMainMenu\Scripts\Main Menu Scripts\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\ActiveStateToggler.cs" />
     <Compile Include="Assets\Scripts\ApplicationManager.cs" />

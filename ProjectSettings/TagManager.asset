@@ -6,9 +6,10 @@ TagManager:
   tags:
   - Enemy_Fighter
   - Explosion
-  - Shot
   - Eff_Explosion
   - Projectile
+  - Shot_Normal
+  - Shot_Scatter
   layers:
   - Default
   - TransparentFX

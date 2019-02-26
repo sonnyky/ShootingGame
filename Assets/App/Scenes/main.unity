@@ -264,13 +264,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pooledObjects: []
   itemsToPool:
-  - objectToPool: {fileID: 100002, guid: 585cddd8741044b1ab91de64b3f54713, type: 2}
+  - objectToPool: {fileID: 1670891087315262, guid: e7cd870b9eca32548ac8059c57fb1acf,
+      type: 2}
     amountToPool: 1
     shouldExpand: 1
   - objectToPool: {fileID: 100000, guid: d6e73afc871f8473790238fec894d8b6, type: 2}
     amountToPool: 1
     shouldExpand: 1
   - objectToPool: {fileID: 100000, guid: 2d96822d972e14335aac9d9297e67323, type: 2}
+    amountToPool: 1
+    shouldExpand: 1
+  - objectToPool: {fileID: 1752911259849404, guid: e63d0d1496b92ce4fa16067367b79208,
+      type: 2}
     amountToPool: 1
     shouldExpand: 1
 --- !u!4 &599891736

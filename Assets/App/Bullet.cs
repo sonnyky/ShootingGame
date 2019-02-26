@@ -11,5 +11,4 @@ public class Bullet : Shot {
             gameObject.SetActive(false);
         }
 	}
-
 }

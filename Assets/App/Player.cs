@@ -7,8 +7,14 @@ public class Player : Ship {
 
     Bounds m_ShipBoundary;
 
-	// PlayerBulletプレハブ
-	public GameObject bullet;
+    [SerializeField]
+    string[] m_BulletNames;
+
+    enum Weapons
+    {
+        Normal,
+        Scatter
+    }
 
     // Use this for initialization
     IEnumerator Start () {
@@ -22,10 +28,7 @@ public class Player : Ship {
         InitializeParameters();
 
 		while (true) {
-            GameObject bullet = ObjectPooler.SharedInstance.GetPooledObject("Shot");
-            bullet.transform.position = transform.position;
-            bullet.transform.rotation = transform.rotation;
-            bullet.SetActive(true);
+            InstantiateBullets();
 			yield return new WaitForSeconds (0.05f);
 		}
 	}
@@ -53,6 +56,29 @@ public class Player : Ship {
         Vector2 max = Camera.main.WorldToViewportPoint(transform.position + m_ShipBoundary.max);
 
         return (min.x < 0f && xDir < 0) || (min.y < 0f && yDir < 0) || (max.x > 1f && xDir > 0) || (max.y > 1f && yDir > 0) ? true : false;
+    }
+
+    void InstantiateBullets()
+    {
+        GameObject bullet = ObjectPooler.SharedInstance.GetPooledObject(m_BulletNames[0]);
+        Vector2 bullet_pos = transform.position;
+
+        // Instantiate on one side
+        bullet_pos.x += 0.07f;
+        bullet.transform.position = bullet_pos ;
+        bullet.transform.rotation = transform.rotation;
+
+        bullet.SetActive(true);
+
+        GameObject another_bullet = ObjectPooler.SharedInstance.GetPooledObject(m_BulletNames[0]);
+
+        // Instantiate on the other
+        bullet_pos.x -= 0.14f;
+
+        another_bullet.transform.position = bullet_pos;
+        another_bullet.transform.rotation = transform.rotation;
+ 
+        another_bullet.SetActive(true);
     }
     
 

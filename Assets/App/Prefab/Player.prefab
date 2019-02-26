@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.3, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4801248768600896}
@@ -208,7 +208,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MaxHealth: 0
   m_CurrentHealth: 0
-  bullet: {fileID: 100002, guid: 585cddd8741044b1ab91de64b3f54713, type: 2}
+  m_BulletNames:
+  - Shot_Normal
+  - Shot_Scatter
 --- !u!212 &212892841260686462
 SpriteRenderer:
   m_ObjectHideFlags: 1
