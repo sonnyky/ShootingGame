@@ -16,6 +16,8 @@ public class Player : Ship {
         Scatter
     }
 
+    Weapons currentWeapon = Weapons.Normal;
+
     // Use this for initialization
     IEnumerator Start () {
 
@@ -28,7 +30,7 @@ public class Player : Ship {
         InitializeParameters();
 
 		while (true) {
-            InstantiateBullets();
+            InstantiateBullets(currentWeapon);
 			yield return new WaitForSeconds (0.05f);
 		}
 	}
@@ -58,14 +60,27 @@ public class Player : Ship {
         return (min.x < 0f && xDir < 0) || (min.y < 0f && yDir < 0) || (max.x > 1f && xDir > 0) || (max.y > 1f && yDir > 0) ? true : false;
     }
 
-    void InstantiateBullets()
+    void InstantiateBullets(Weapons selectedWeapon)
+    {
+
+        switch (selectedWeapon) {
+            case Weapons.Normal:
+                ShootNormalBullets();
+                break;
+            default:
+                ShootNormalBullets();
+                break;
+        }
+    }
+
+    void ShootNormalBullets()
     {
         GameObject bullet = ObjectPooler.SharedInstance.GetPooledObject(m_BulletNames[0]);
         Vector2 bullet_pos = transform.position;
 
         // Instantiate on one side
         bullet_pos.x += 0.07f;
-        bullet.transform.position = bullet_pos ;
+        bullet.transform.position = bullet_pos;
         bullet.transform.rotation = transform.rotation;
 
         bullet.SetActive(true);
@@ -77,7 +92,7 @@ public class Player : Ship {
 
         another_bullet.transform.position = bullet_pos;
         another_bullet.transform.rotation = transform.rotation;
- 
+
         another_bullet.SetActive(true);
     }
     

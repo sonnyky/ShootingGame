@@ -10,6 +10,7 @@ TagManager:
   - Projectile
   - Shot_Normal
   - Shot_Scatter
+  - PowerUp_Weapons_Random
   layers:
   - Default
   - TransparentFX
