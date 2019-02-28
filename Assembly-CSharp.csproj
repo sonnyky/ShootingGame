@@ -64,6 +64,7 @@
     <Compile Include="Assets\App\Player.cs" />
     <Compile Include="Assets\App\Scripts\AudioClipManager.cs" />
     <Compile Include="Assets\App\Scripts\Bonus.cs" />
+    <Compile Include="Assets\App\Scripts\BonusSpawner.cs" />
     <Compile Include="Assets\App\Scripts\Enemy.cs" />
     <Compile Include="Assets\App\Scripts\EnemySpawn.cs" />
     <Compile Include="Assets\App\Scripts\Explosion.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Assets\App\Scripts\Shot.cs" />
     <Compile Include="Assets\App\Scripts\SoundObject.cs" />
     <Compile Include="Assets\App\Scripts\SoundObjectInterface.cs" />
+    <Compile Include="Assets\App\Scripts\Spawner.cs" />
     <Compile Include="Assets\App\Scripts\States\Destroyed.cs" />
     <Compile Include="Assets\App\Scripts\States\Initialize.cs" />
     <Compile Include="Assets\App\Scripts\States\Moving.cs" />

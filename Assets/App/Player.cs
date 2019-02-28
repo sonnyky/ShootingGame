@@ -95,6 +95,16 @@ public class Player : Ship {
 
         another_bullet.SetActive(true);
     }
+
+    /// <summary>
+    /// Called by the power up items and handles the behavior change due to the power up. Target being weapons or ship armor, further divided into types.
+    /// </summary>
+    /// <param name="target"></param>
+    /// <param name="type"></param>
+    public void PowerUp(string target, string type)
+    {
+
+    }
     
 
 }
