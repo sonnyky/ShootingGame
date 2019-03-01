@@ -7,7 +7,7 @@ public class Ship : MonoBehaviour {
     public float m_MaxHealth;
     public float m_CurrentHealth;
 
-    private HealthBar m_HealthBar;
+    public HealthBar m_HealthBar;
 
     private StateManager<Ship> currentState;
     public StateManager<Ship> previousState;
@@ -19,17 +19,15 @@ public class Ship : MonoBehaviour {
 
     private void Awake()
     {
-        m_HealthBar = transform.Find("HealthBar").GetComponent<HealthBar>();
-      
         m_DestroyedState = new Destroyed(this);
         m_MovingState = new Moving(this);
+        SetState(m_MovingState);
     }
 
-    public void InitializeParameters()
+    public void ReinitializeParameters()
     {
         m_CurrentHealth = m_MaxHealth;
         m_HealthBar.ResetToMax();
-        SetState(m_MovingState);
     }
 
     public void SetState(StateManager<Ship> nextState)
@@ -71,6 +69,7 @@ public class Ship : MonoBehaviour {
             if (m_CurrentHealth <= 0f)
             {
                 ExplosionEffect();
+                ReinitializeParameters();
                 SetState(m_DestroyedState);
             }
 

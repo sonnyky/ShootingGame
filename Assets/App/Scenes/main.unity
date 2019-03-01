@@ -154,11 +154,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnTime: 2
-  enemySpeed: -1
+  m_ObjectSpeed: -1
   topBound: 16.5
   bottomBound: -13.5
-  enemySpawnRate: 1
-  enemyCount: 0
 --- !u!1 &457716324
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,6 +242,7 @@ GameObject:
   - component: {fileID: 599891736}
   - component: {fileID: 599891735}
   - component: {fileID: 599891737}
+  - component: {fileID: 599891738}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -278,6 +277,10 @@ MonoBehaviour:
       type: 2}
     amountToPool: 1
     shouldExpand: 1
+  - objectToPool: {fileID: 1305740135439042, guid: 0706f850f38ede840881bc2bb9615754,
+      type: 2}
+    amountToPool: 1
+    shouldExpand: 1
 --- !u!4 &599891736
 Transform:
   m_ObjectHideFlags: 0
@@ -300,6 +303,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6bc7054ba94282f45baafde6a7346853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &599891738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 599891734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cc4a6b7b60604444849d3175598e44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &722823057
@@ -670,6 +684,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 977324529}
+  - component: {fileID: 977324530}
   m_Layer: 0
   m_Name: BonusSpawner
   m_TagString: Untagged
@@ -690,6 +705,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &977324530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 977324528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64c95cade129ccc43816807f30d70026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnTime: 5
+  m_ObjectSpeed: -0.5
+  topBound: 16.5
+  bottomBound: -13.5
 --- !u!1 &991211620
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,10 +833,6 @@ Prefab:
     - target: {fileID: 400000, guid: ef23687e1ee0645e6a9972b38244da8c, type: 2}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ef23687e1ee0645e6a9972b38244da8c, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef23687e1ee0645e6a9972b38244da8c, type: 2}
@@ -1306,10 +1332,6 @@ Prefab:
     - target: {fileID: 4578523613788458, guid: 0706f850f38ede840881bc2bb9615754, type: 2}
       propertyPath: m_RootOrder
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1305740135439042, guid: 0706f850f38ede840881bc2bb9615754, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0706f850f38ede840881bc2bb9615754, type: 2}

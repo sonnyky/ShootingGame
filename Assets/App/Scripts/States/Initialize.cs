@@ -21,7 +21,6 @@ public class Initialize : StateManager<Ship>
     public override void OnStateEnter()
     {
         base.OnStateEnter();
-        targetObject.InitializeParameters();
     }
 
     public override void OnStateExit()

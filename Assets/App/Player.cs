@@ -27,8 +27,6 @@ public class Player : Ship {
         m_DestroyedState = new Destroyed(this);
         m_MovingState = new Moving(this);
 
-        InitializeParameters();
-
 		while (true) {
             InstantiateBullets(currentWeapon);
 			yield return new WaitForSeconds (0.05f);
@@ -103,7 +101,7 @@ public class Player : Ship {
     /// <param name="type"></param>
     public void PowerUp(string target, string type)
     {
-
+        Debug.Log("target and type : " + target + ", " + type);
     }
     
 

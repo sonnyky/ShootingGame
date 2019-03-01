@@ -26,6 +26,9 @@ public class PowerUpBonus : Bonus, ISoundObject {
     {
         if (collider.gameObject.CompareTag("Player"))
         {
+            m_Collider.enabled = false;
+            collider.gameObject.GetComponent<Player>().PowerUp(m_PowerUpValues.powerUpTarget, m_PowerUpValues.powerUpType);
+
             m_Image.SetActive(false);
             m_ClipManager.PlayAudio();
         }

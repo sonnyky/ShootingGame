@@ -60,7 +60,6 @@ public class Spawner : MonoBehaviour {
         Vector3 spawnPoint = new Vector3(Random.Range(-1f, 1f), 1.5f, 0f);
         objInstance.transform.position = spawnPoint;
         objInstance.gameObject.SetActive(true);
-        objInstance.gameObject.GetComponent<Ship>().InitializeParameters();
 
         // If the instance is using an available pooled object, do not add to the job queue again.
         if (objInstance.name.Split('(').Length > 1)

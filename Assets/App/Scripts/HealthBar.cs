@@ -39,5 +39,7 @@ public class HealthBar : MonoBehaviour
     {
         transform.localScale = maxScale;
         transform.localPosition = initialPosition;
+        Debug.Log("Reset ?: " + maxScale);
+
     }
 }

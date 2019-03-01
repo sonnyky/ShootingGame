@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4341020592552232}
   - component: {fileID: 212980490873509470}
   - component: {fileID: 58021058866800504}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BulletSpread
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4129338857978594}
   - component: {fileID: 114945734371213100}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SpreadingBullet
   m_TagString: Shot_Scatter
   m_Icon: {fileID: 0}

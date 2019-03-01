@@ -8,16 +8,18 @@ public class Bonus : MonoBehaviour {
 
     public GameObject m_Image;
 
-    private void OnEnable()
+    internal Collider2D m_Collider;
+
+    private void Awake()
     {
-        m_Image.SetActive(true);
+        m_Collider = GetComponent<Collider2D>();
     }
 
-
-    // Use this for initialization
-    void Start () {
-		
-	}
+    private void OnEnable()
+    {
+        m_Collider.enabled = true;
+        m_Image.SetActive(true);
+    }
 	
 	// Update is called once per frame
 	void Update () {

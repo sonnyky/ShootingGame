@@ -208,6 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MaxHealth: 0
   m_CurrentHealth: 0
+  m_HealthBar: {fileID: 114114145284716206}
   m_BulletNames:
   - Shot_Normal
   - Shot_Scatter

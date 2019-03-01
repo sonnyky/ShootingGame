@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61994682914860416}
   - component: {fileID: 50385503212467026}
   - component: {fileID: 114632187933921070}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: NormalBullet
   m_TagString: Shot_Normal
   m_Icon: {fileID: 0}

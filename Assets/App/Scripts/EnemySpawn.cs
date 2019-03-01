@@ -25,10 +25,10 @@ public class EnemySpawn : Spawner {
     
     void Start () {
         transforms = new TransformAccessArray(0, -1);
-        InvokeRepeating("AddShips", spawnTime, spawnTime);
+        InvokeRepeating("Add", spawnTime, spawnTime);
     }
 
-    void AddShips()
+    void Add()
     {
         Enemies enemy = Tinker.Utilites.RandomEnumValue<Enemies>();
         string enemyTag = GetObjectTag(enemy);
