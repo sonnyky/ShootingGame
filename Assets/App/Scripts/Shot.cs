@@ -6,6 +6,10 @@ public class Shot : MonoBehaviour {
 
     public float m_damage;
 
+    public float speed = 5f;
+
+    public int m_ShotOwner { get; set; } // 0:Player, 1:Enemy
+
     public float GetDamage()
     {
         return m_damage;

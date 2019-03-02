@@ -17,6 +17,8 @@ public class Ship : MonoBehaviour {
     internal Destroyed m_DestroyedState;
     internal Moving m_MovingState;
 
+    public int m_OwnerId;
+
     private void Awake()
     {
         m_DestroyedState = new Destroyed(this);
@@ -52,27 +54,29 @@ public class Ship : MonoBehaviour {
         return screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        string incomingTag = collision.gameObject.tag;
+        string incomingTag = collider.gameObject.tag;
 
         string[] tagSplit = incomingTag.Split('_');
 
         if (tagSplit[0].Equals("Shot"))
         {
-            float damage = collision.transform.GetComponent<Shot>().GetDamage();
-
-            m_CurrentHealth -= damage;
-            m_HealthBar.HitPointReduceTo(m_CurrentHealth/m_MaxHealth);
-            
-
-            if (m_CurrentHealth <= 0f)
+            if (collider.gameObject.GetComponent<Shot>().m_ShotOwner != m_OwnerId)
             {
-                ExplosionEffect();
-                ReinitializeParameters();
-                SetState(m_DestroyedState);
-            }
+                float damage = collider.transform.GetComponent<Shot>().GetDamage();
 
+                m_CurrentHealth -= damage;
+                m_HealthBar.HitPointReduceTo(m_CurrentHealth / m_MaxHealth);
+
+
+                if (m_CurrentHealth <= 0f)
+                {
+                    ExplosionEffect();
+                    ReinitializeParameters();
+                    SetState(m_DestroyedState);
+                }
+            }
         }
     }
 

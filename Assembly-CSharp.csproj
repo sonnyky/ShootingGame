@@ -60,11 +60,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\App\Bullet.cs" />
     <Compile Include="Assets\App\Player.cs" />
     <Compile Include="Assets\App\Scripts\AudioClipManager.cs" />
     <Compile Include="Assets\App\Scripts\Bonus.cs" />
     <Compile Include="Assets\App\Scripts\BonusSpawner.cs" />
+    <Compile Include="Assets\App\Scripts\Bullet.cs" />
     <Compile Include="Assets\App\Scripts\Enemy.cs" />
     <Compile Include="Assets\App\Scripts\EnemySpawn.cs" />
     <Compile Include="Assets\App\Scripts\Explosion.cs" />
@@ -77,7 +77,7 @@
     <Compile Include="Assets\App\Scripts\ObjectPooler.cs" />
     <Compile Include="Assets\App\Scripts\PowerUpBonus.cs" />
     <Compile Include="Assets\App\Scripts\RevolvingBackground.cs" />
-    <Compile Include="Assets\App\Scripts\Scatter.cs" />
+    <Compile Include="Assets\App\Scripts\ScatterBullet.cs" />
     <Compile Include="Assets\App\Scripts\Scriptables\PowerUp.cs" />
     <Compile Include="Assets\App\Scripts\Shot.cs" />
     <Compile Include="Assets\App\Scripts\SoundObject.cs" />

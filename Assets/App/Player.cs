@@ -27,6 +27,8 @@ public class Player : Ship {
         m_DestroyedState = new Destroyed(this);
         m_MovingState = new Moving(this);
 
+        m_OwnerId = 0;
+
 		while (true) {
             InstantiateBullets(currentWeapon);
 			yield return new WaitForSeconds (0.05f);
@@ -65,6 +67,9 @@ public class Player : Ship {
             case Weapons.Normal:
                 ShootNormalBullets();
                 break;
+            case Weapons.Scatter:
+                ShootScatterBullets();
+                break;
             default:
                 ShootNormalBullets();
                 break;
@@ -80,7 +85,7 @@ public class Player : Ship {
         bullet_pos.x += 0.07f;
         bullet.transform.position = bullet_pos;
         bullet.transform.rotation = transform.rotation;
-
+        bullet.GetComponent<Shot>().m_ShotOwner = 0;
         bullet.SetActive(true);
 
         GameObject another_bullet = ObjectPooler.SharedInstance.GetPooledObject(m_BulletNames[0]);
@@ -90,8 +95,22 @@ public class Player : Ship {
 
         another_bullet.transform.position = bullet_pos;
         another_bullet.transform.rotation = transform.rotation;
-
+        another_bullet.GetComponent<Shot>().m_ShotOwner = 0;
         another_bullet.SetActive(true);
+    }
+
+    void ShootScatterBullets()
+    {
+        GameObject bullet = ObjectPooler.SharedInstance.GetPooledObject(m_BulletNames[1]);
+        bullet.transform.position = transform.position;
+        bullet.SetActive(true);
+        bullet.GetComponent<ScatterBullet>().m_DirectionId = 0;
+
+        GameObject leftBullet = ObjectPooler.SharedInstance.GetPooledObject(m_BulletNames[1]);
+        leftBullet.transform.position = transform.position;
+        leftBullet.SetActive(true);
+        leftBullet.GetComponent<ScatterBullet>().m_DirectionId = 1;
+
     }
 
     /// <summary>
@@ -101,7 +120,28 @@ public class Player : Ship {
     /// <param name="type"></param>
     public void PowerUp(string target, string type)
     {
-        Debug.Log("target and type : " + target + ", " + type);
+        switch (target)
+        {
+            case "Weapons":
+                Debug.Log("Power up for weapons");
+
+                switch (type)
+                {
+                    case "Random":
+                        //Weapons newWeapon = Tinker.Utilites.RandomEnumValue<Weapons>();
+                        currentWeapon = Weapons.Scatter;
+                        break;
+                    default:
+                        break;
+
+                }
+
+                break;
+
+            default:
+                break;
+        }
+
     }
     
 
