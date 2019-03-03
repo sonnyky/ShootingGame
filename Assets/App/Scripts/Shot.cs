@@ -10,11 +10,15 @@ public class Shot : MonoBehaviour {
 
     public int m_ShotOwner { get; set; } // 0:Player, 1:Enemy
 
+    protected virtual void Start()
+    {
+
+    }
+
     public float GetDamage()
     {
         return m_damage;
     }
-
 
     internal bool IsInViewport()
     {

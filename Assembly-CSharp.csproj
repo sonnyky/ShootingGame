@@ -87,6 +87,7 @@
     <Compile Include="Assets\App\Scripts\States\Initialize.cs" />
     <Compile Include="Assets\App\Scripts\States\Moving.cs" />
     <Compile Include="Assets\App\Scripts\States\Ship.cs" />
+    <Compile Include="Assets\App\Scripts\Weapon.cs" />
     <Compile Include="Assets\EasyMainMenu\Scripts\Main Menu Scripts\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\ActiveStateToggler.cs" />
     <Compile Include="Assets\Scripts\ApplicationManager.cs" />

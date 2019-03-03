@@ -10,8 +10,9 @@ public class ScatterBullet : Shot {
     private Vector3 m_LeftDirection;
     private Vector3 m_RightDirection;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         m_RightDirection = Quaternion.AngleAxis(-25, transform.forward) * transform.up;
         m_LeftDirection = Quaternion.AngleAxis(25, transform.forward) * transform.up;
     }

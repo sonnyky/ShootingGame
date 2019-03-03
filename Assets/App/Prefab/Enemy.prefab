@@ -31,6 +31,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4581818558004246}
+  - {fileID: 4219657583875518}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -109,6 +110,22 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabAsset: 1
+--- !u!1 &1337250233207652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4219657583875518}
+  - component: {fileID: 114873102376624752}
+  m_Layer: 9
+  m_Name: Weapons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1640479436302470
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,6 +143,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4219657583875518
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1337250233207652}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400000}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4581818558004246
 Transform:
   m_ObjectHideFlags: 1
@@ -198,6 +228,7 @@ MonoBehaviour:
   m_MaxHealth: 10
   m_CurrentHealth: 10
   m_HealthBar: {fileID: 114684115507129550}
+  m_OwnerId: 0
 --- !u!114 &114684115507129550
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -209,6 +240,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18df0599d854791468b45e7512d35170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114873102376624752
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1337250233207652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a757558b5f33b0742bde5250d6ecc4cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_WeaponSe: []
 --- !u!212 &212767879097890644
 SpriteRenderer:
   m_ObjectHideFlags: 1

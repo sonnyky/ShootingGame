@@ -1,6 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum Weapons
+{
+    Normal,
+    Scatter
+}
+
 public class Player : Ship {
 
     Vector2 direction;
@@ -10,11 +16,7 @@ public class Player : Ship {
     [SerializeField]
     string[] m_BulletNames;
 
-    enum Weapons
-    {
-        Normal,
-        Scatter
-    }
+    public Weapon m_WeaponManager;
 
     Weapons currentWeapon = Weapons.Normal;
 
@@ -31,7 +33,7 @@ public class Player : Ship {
 
 		while (true) {
             InstantiateBullets(currentWeapon);
-			yield return new WaitForSeconds (0.05f);
+			yield return new WaitForSeconds (0.2f);
 		}
 	}
 
@@ -62,7 +64,9 @@ public class Player : Ship {
 
     void InstantiateBullets(Weapons selectedWeapon)
     {
+        m_WeaponManager.ChangeSe(currentWeapon);
 
+        m_WeaponManager.PlaySe();
         switch (selectedWeapon) {
             case Weapons.Normal:
                 ShootNormalBullets();
@@ -97,6 +101,7 @@ public class Player : Ship {
         another_bullet.transform.rotation = transform.rotation;
         another_bullet.GetComponent<Shot>().m_ShotOwner = 0;
         another_bullet.SetActive(true);
+
     }
 
     void ShootScatterBullets()
@@ -115,7 +120,6 @@ public class Player : Ship {
         rightBullet.transform.position = transform.position;
         rightBullet.SetActive(true);
         rightBullet.GetComponent<ScatterBullet>().m_DirectionId = 2;
-
     }
 
     /// <summary>
