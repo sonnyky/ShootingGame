@@ -12,7 +12,8 @@ public class ScatterBullet : Shot {
 
     private void Start()
     {
-       m_LeftDirection = new Vector3(1f,Mathf.Cos(0.35f), Mathf.Sin(0.35f));
+        m_RightDirection = Quaternion.AngleAxis(-25, transform.forward) * transform.up;
+        m_LeftDirection = Quaternion.AngleAxis(25, transform.forward) * transform.up;
     }
 
     // Update is called once per frame
@@ -24,6 +25,9 @@ public class ScatterBullet : Shot {
                 break;
             case 1:
                 transform.position += m_LeftDirection * Time.deltaTime * speed;
+                break;
+            case 2:
+                transform.position += m_RightDirection * Time.deltaTime * speed;
                 break;
             default:
                 break;

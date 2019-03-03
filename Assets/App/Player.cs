@@ -111,6 +111,11 @@ public class Player : Ship {
         leftBullet.SetActive(true);
         leftBullet.GetComponent<ScatterBullet>().m_DirectionId = 1;
 
+        GameObject rightBullet = ObjectPooler.SharedInstance.GetPooledObject(m_BulletNames[1]);
+        rightBullet.transform.position = transform.position;
+        rightBullet.SetActive(true);
+        rightBullet.GetComponent<ScatterBullet>().m_DirectionId = 2;
+
     }
 
     /// <summary>
@@ -123,8 +128,6 @@ public class Player : Ship {
         switch (target)
         {
             case "Weapons":
-                Debug.Log("Power up for weapons");
-
                 switch (type)
                 {
                     case "Random":
