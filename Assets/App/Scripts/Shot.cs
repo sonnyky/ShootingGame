@@ -26,9 +26,13 @@ public class Shot : MonoBehaviour {
         return screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        gameObject.SetActive(false);
+        int ownerId = collider.GetComponent<Ship>().m_OwnerId;
+        if (m_ShotOwner != ownerId)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
 
