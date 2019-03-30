@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Enemy : Ship {
 
+    private int m_ScoreWhenDestroyed = 10;
+
 	// Use this for initialization
 	void Start () {
         speed = -1f;
@@ -15,5 +17,16 @@ public class Enemy : Ship {
     public override void Move()
     {
         
+    }
+
+    public override void OnDestroyed()
+    {
+        base.OnDestroyed();
+        AddPlayerScore();
+    }
+
+    public void AddPlayerScore()
+    {
+        m_ScoreBoard.AddNewScore(m_ScoreWhenDestroyed);
     }
 }

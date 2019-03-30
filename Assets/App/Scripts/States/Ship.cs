@@ -17,12 +17,15 @@ public class Ship : MonoBehaviour {
     internal Destroyed m_DestroyedState;
     internal Moving m_MovingState;
 
+    internal Scoreboard m_ScoreBoard;
+
     public int m_OwnerId;
 
     private void Awake()
     {
         m_DestroyedState = new Destroyed(this);
         m_MovingState = new Moving(this);
+        m_ScoreBoard = GameObject.Find("Scoreboard").GetComponent<Scoreboard>();
         SetState(m_MovingState);
     }
 
@@ -72,12 +75,15 @@ public class Ship : MonoBehaviour {
 
                 if (m_CurrentHealth <= 0f)
                 {
-                    ExplosionEffect();
-                    ReinitializeParameters();
                     SetState(m_DestroyedState);
                 }
             }
         }
+    }
+
+    public virtual void OnDestroyed()
+    {
+
     }
 
     public virtual void Move()

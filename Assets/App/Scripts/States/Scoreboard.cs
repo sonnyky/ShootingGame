@@ -18,11 +18,14 @@ public class Scoreboard : MonoBehaviour {
 
     [SerializeField]
     private Image[] m_DigitsPosition;
+    private int m_MaxDigits;
 
     private void Awake()
     {
         m_IdleState = new Idle(this);
         m_UpdateState = new Update(this);
+        m_MaxDigits = m_DigitsPosition.Length;
+        m_CurrentScore = 0;
         SetState(m_IdleState);
     }
 
@@ -34,18 +37,19 @@ public class Scoreboard : MonoBehaviour {
         if (m_CurrentState != null) m_CurrentState.OnStateEnter();
     }
 
-    public void SetNewScore(int score)
+    public void AddNewScore(int score)
     {
+        m_CurrentScore += score;
 
+        string scoreString = m_CurrentScore.ToString();
+
+        Debug.Log("score digits : "  + scoreString.Length);
+        int digitId = 0;
+        for(int i = scoreString.Length - 1; i >= 0; i--)
+        {
+            Debug.Log("digit : " + scoreString[i] + " at position : " + (m_MaxDigits - 1 - digitId));
+            m_DigitsPosition[digitId].sprite = m_NumberSprites[int.Parse(scoreString[i].ToString())];
+            digitId++;
+        }
     }
-
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

@@ -20,6 +20,9 @@ public class Destroyed : StateManager<Ship> {
     public override void OnStateEnter()
     {
         base.OnStateEnter();
+        targetObject.ExplosionEffect();
+        targetObject.ReinitializeParameters();
+        targetObject.OnDestroyed();
         targetObject.Disable();
     }
 
