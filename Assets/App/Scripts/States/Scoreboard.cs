@@ -43,11 +43,9 @@ public class Scoreboard : MonoBehaviour {
 
         string scoreString = m_CurrentScore.ToString();
 
-        Debug.Log("score digits : "  + scoreString.Length);
         int digitId = 0;
         for(int i = scoreString.Length - 1; i >= 0; i--)
         {
-            Debug.Log("digit : " + scoreString[i] + " at position : " + (m_MaxDigits - 1 - digitId));
             m_DigitsPosition[digitId].sprite = m_NumberSprites[int.Parse(scoreString[i].ToString())];
             digitId++;
         }

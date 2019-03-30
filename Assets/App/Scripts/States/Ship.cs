@@ -63,21 +63,24 @@ public class Ship : MonoBehaviour {
 
         string[] tagSplit = incomingTag.Split('_');
 
+        // Colliding with a weapon
         if (tagSplit[0].Equals("Shot"))
         {
             if (collider.gameObject.GetComponent<Shot>().m_ShotOwner != m_OwnerId)
             {
                 float damage = collider.transform.GetComponent<Shot>().GetDamage();
-
-                m_CurrentHealth -= damage;
-                m_HealthBar.HitPointReduceTo(m_CurrentHealth / m_MaxHealth);
-
-
+                ReceiveDamage(damage);
+               
                 if (m_CurrentHealth <= 0f)
                 {
                     SetState(m_DestroyedState);
                 }
             }
+        }
+        else
+        {
+            Debug.Log("collided with an enemy unit");
+            OnCollisionWithAnotherUnit(collider.gameObject);
         }
     }
 
@@ -86,9 +89,20 @@ public class Ship : MonoBehaviour {
 
     }
 
+    public virtual void OnCollisionWithAnotherUnit(GameObject collidingObject)
+    {
+
+    }
+
     public virtual void Move()
     {
         
+    }
+
+    public void ReceiveDamage(float damage)
+    {
+        m_CurrentHealth -= damage;
+        m_HealthBar.HitPointReduceTo(m_CurrentHealth / m_MaxHealth);
     }
 
     public void ExplosionEffect()

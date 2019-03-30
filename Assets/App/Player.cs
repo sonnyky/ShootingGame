@@ -150,6 +150,22 @@ public class Player : Ship {
         }
 
     }
-    
+
+    public override void OnCollisionWithAnotherUnit(GameObject collidingObject)
+    {
+        base.OnCollisionWithAnotherUnit(collidingObject);
+        string incomingTag = collidingObject.tag;
+
+        string[] tagSplit = incomingTag.Split('_');
+        switch (tagSplit[0])
+        {
+            case "Enemy":
+                int damage = collidingObject.GetComponent<Enemy>().m_DamageToPlayerWhenHit;
+                ReceiveDamage(damage);
+                break;
+        }
+
+    }
+
 
 }

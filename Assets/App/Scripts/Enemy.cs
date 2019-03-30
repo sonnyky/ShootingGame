@@ -5,6 +5,8 @@ public class Enemy : Ship {
 
     private int m_ScoreWhenDestroyed = 10;
 
+    public int m_DamageToPlayerWhenHit = 20;
+
 	// Use this for initialization
 	void Start () {
         speed = -1f;
