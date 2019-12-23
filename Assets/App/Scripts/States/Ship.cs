@@ -79,7 +79,7 @@ public class Ship : MonoBehaviour {
         }
         else
         {
-            Debug.Log("collided with an enemy unit");
+            //Debug.Log("collided with an enemy unit");
             OnCollisionWithAnotherUnit(collider.gameObject);
         }
     }
