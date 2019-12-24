@@ -53,6 +53,10 @@ namespace Tinker
             touches.Clear();
         }
 
+        /// <summary>
+        /// Can be called by the end application after a successful calibration to start modifying the sensor positions to match Unity coordinates.
+        /// </summary>
+        /// <param name="path"></param>
         public void LoadHomographyMatrix(string path)
         {
             string prefix = Application.persistentDataPath;
@@ -107,6 +111,14 @@ namespace Tinker
                     m_HomographyMatrix[i,j] = valueToInsert;
                 }
             }
+        }
+
+        /// <summary>
+        /// Used by the calling application when going into calibration mode. Therefore the points returned from the sensor as is and not modified.
+        /// </summary>
+        public void SetHomographyToIdentity()
+        {
+            m_HomographyMatrix = Matrix4x4.identity;
         }
 
         void ProcessInput(string input)

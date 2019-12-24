@@ -25,10 +25,27 @@ public class Calibration : MonoBehaviour
 
     int calibratingPointId = 0;
 
+    public System.Action OnCalibrationFinished;
+
     private void Start()
     {
         m_HomographyCalculator = new CalcHomography();
+        m_HomographyCalculator.InitiateDevice();
         m_HomographyFullPath = Application.persistentDataPath + m_HomographyFile;
+
+        m_AnalogInputPoints = new List<Vector3>();
+        m_UnityScreenPositions = new List<Vector3>();
+
+        for(int i=0; i<m_CalibrationPointsWithCrosshairs.Length; i++)
+        {
+            m_UnityScreenPositions.Add(m_CalibrationPointsWithCrosshairs[i].transform.position);
+            if (i > 0) m_CalibrationPointsWithCrosshairs[i].SetActive(false);
+        }
+    }
+
+    public void RedoCalibration()
+    {
+        m_AnalogInputPoints.Clear();
     }
 
     public void SetSensorInputPoint(Vector2 inputPoint)
@@ -37,11 +54,17 @@ public class Calibration : MonoBehaviour
         m_AnalogInputPoints.Add(paddedVector);
         if(m_AnalogInputPoints.Count == 4)
         {
+            m_CalibrationPointsWithCrosshairs[calibratingPointId].SetActive(false);
             CalculateHomography();
+        }
+        else if(m_AnalogInputPoints.Count < 4)
+        {
+            CalibrateNextPoint();
+            calibratingPointId++;
         }
         else
         {
-            calibratingPointId++;
+            Debug.Log("More than 4 points detected !!!");
         }
     }
 
@@ -98,5 +121,6 @@ public class Calibration : MonoBehaviour
             writer.WriteLine(homography[i]);
         }
         writer.Close();
+        OnCalibrationFinished.Invoke();
     }
 }
