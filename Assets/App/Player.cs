@@ -39,16 +39,42 @@ public class Player : Ship {
 
     public override void Move()
     {
+        // Keyboard input
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
-
-        if (!MoveAreaLimit(x, y))
+        if(x != 0 || y != 0)
         {
-            direction = new Vector2(x, y).normalized;
+            if (!MoveAreaLimit(x, y))
+            {
+                direction = new Vector2(x, y).normalized;
+            }
+            else
+            {
+                direction = Vector2.zero;
+            }
         }
         else
         {
             direction = Vector2.zero;
+        }
+
+        // Mouse input. This will cause the keyboard commands to stop working because direction is zeroed here
+        if (Input.GetMouseButton(0))
+        {
+            Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            x = worldPoint.x;
+            y = worldPoint.y;
+            direction.x = x - transform.position.x;
+            direction.y = y - transform.position.y;
+        }
+        else
+        {
+            direction = Vector2.zero;
+        }
+
+        if(Tinker.Input.touchCount > 0)
+        {
+
         }
         GetComponent<Rigidbody2D>().velocity = direction * speed;
     }

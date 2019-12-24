@@ -1,3 +1,10 @@
 {
-  "name": "ShootingGame"
+  "name": "ShootingGame",
+  "dependencies": [
+    "sonnyky/UnityOSCManager",
+    "sonnyky/UnityScreenCalibration",
+    "sonnyky/LaserRangeFinderInput",
+    "sonnyky/WindowsNativePlugin",
+    "sonnyky/UnityUtilities"
+  ]
 }
