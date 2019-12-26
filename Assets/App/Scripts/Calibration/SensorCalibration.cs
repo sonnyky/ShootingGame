@@ -12,6 +12,9 @@ public class SensorCalibration : MonoBehaviour
 
     bool m_IsCalibratingPoint = false;
 
+    [SerializeField]
+    GameObject m_Cursor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +23,8 @@ public class SensorCalibration : MonoBehaviour
 
         m_Calibration.OnCalibrationFinished += CalibrationFinished;
         m_Calibration.gameObject.SetActive(false);
+
+        m_Cursor = Instantiate(m_Cursor);
     }
 
     // Update is called once per frame
@@ -45,7 +50,10 @@ public class SensorCalibration : MonoBehaviour
             }
             else
             {
-                // normal point display
+                Vector3 pos = Camera.main.ScreenToWorldPoint(touchInstance.position);
+                pos.z = 0f;
+                m_Cursor.transform.position = pos;
+              
             }
         }
     }
@@ -53,5 +61,7 @@ public class SensorCalibration : MonoBehaviour
     void CalibrationFinished()
     {
         m_IsCalibrating = false;
+        m_SensorInput.LoadHomographyMatrix();
+        m_Calibration.gameObject.SetActive(false);
     }
 }
