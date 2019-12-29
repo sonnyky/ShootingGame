@@ -74,7 +74,11 @@ public class Player : Ship {
 
         if(Tinker.Input.touchCount > 0)
         {
-
+            Tinker.Touch touchInstance = Tinker.Input.GetTouch(0);
+            Vector3 pos = Camera.main.ScreenToWorldPoint(touchInstance.position);
+            pos.z = 0f;
+            direction.x = pos.x - transform.position.x;
+            direction.y = pos.y - transform.position.y;
         }
         GetComponent<Rigidbody2D>().velocity = direction * speed;
     }

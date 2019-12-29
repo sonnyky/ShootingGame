@@ -62,7 +62,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\App\Player.cs" />
     <Compile Include="Assets\App\Scripts\AudioClipManager.cs" />
     <Compile Include="Assets\App\Scripts\Bonus.cs" />
     <Compile Include="Assets\App\Scripts\BonusSpawner.cs" />
@@ -78,6 +77,7 @@
     <Compile Include="Assets\App\Scripts\MenuManager.cs" />
     <Compile Include="Assets\App\Scripts\MovementJob.cs" />
     <Compile Include="Assets\App\Scripts\ObjectPooler.cs" />
+    <Compile Include="Assets\App\Scripts\Player.cs" />
     <Compile Include="Assets\App\Scripts\PowerUpBonus.cs" />
     <Compile Include="Assets\App\Scripts\RevolvingBackground.cs" />
     <Compile Include="Assets\App\Scripts\ScatterBullet.cs" />
