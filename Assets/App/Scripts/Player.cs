@@ -21,7 +21,7 @@ public class Player : Ship {
     Weapons currentWeapon = Weapons.Normal;
 
     // Use this for initialization
-    IEnumerator Start () {
+    void Start () {
 
         direction = new Vector2();
         m_ShipBoundary = GetComponent<Renderer>().bounds;
@@ -31,11 +31,15 @@ public class Player : Ship {
 
         m_OwnerId = 0;
 
-		while (true) {
-            InstantiateBullets(currentWeapon);
-			yield return new WaitForSeconds (0.2f);
-		}
+        StartCoroutine(Fire());
 	}
+
+    IEnumerator Fire()
+    {
+        InstantiateBullets(currentWeapon);
+        yield return new WaitForSeconds(0.2f);
+        StartCoroutine(Fire());
+    }
 
     public override void Move()
     {
@@ -61,9 +65,13 @@ public class Player : Ship {
         // Mouse input. This will cause the keyboard commands to stop working because direction is zeroed here
         if (Input.GetMouseButton(0))
         {
-            Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 mousePoint = Input.mousePosition;
+            mousePoint.z = 1f;
+            Vector3 worldPoint = Camera.main.ScreenToWorldPoint(mousePoint);
             x = worldPoint.x;
             y = worldPoint.y;
+            Debug.Log("mous : " + Input.mousePosition);
+            Debug.Log(worldPoint);
             direction.x = x - transform.position.x;
             direction.y = y - transform.position.y;
         }
