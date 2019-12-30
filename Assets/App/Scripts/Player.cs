@@ -16,12 +16,15 @@ public class Player : Ship {
     [SerializeField]
     string[] m_BulletNames;
 
-    public Weapon m_WeaponManager;
+    Weapon m_WeaponManager;
 
     Weapons currentWeapon = Weapons.Normal;
 
     // Use this for initialization
     void Start () {
+
+        m_WeaponManager = transform.Find("Weapons").gameObject.GetComponent<Weapon>();
+        m_WeaponManager.Init();
 
         direction = new Vector2();
         m_ShipBoundary = GetComponent<Renderer>().bounds;
