@@ -70,8 +70,7 @@ public class Player : Ship {
             Vector3 worldPoint = Camera.main.ScreenToWorldPoint(mousePoint);
             x = worldPoint.x;
             y = worldPoint.y;
-            Debug.Log("mous : " + Input.mousePosition);
-            Debug.Log(worldPoint);
+         
             direction.x = x - transform.position.x;
             direction.y = y - transform.position.y;
         }
@@ -83,8 +82,10 @@ public class Player : Ship {
         if(Tinker.Input.touchCount > 0)
         {
             Tinker.Touch touchInstance = Tinker.Input.GetTouch(0);
-            Vector3 pos = Camera.main.ScreenToWorldPoint(touchInstance.position);
-            pos.z = 0f;
+            Vector3 touchPoint = touchInstance.position;
+            touchPoint.z = 1f;
+            Vector3 pos = Camera.main.ScreenToWorldPoint(touchPoint);
+
             direction.x = pos.x - transform.position.x;
             direction.y = pos.y - transform.position.y;
         }
