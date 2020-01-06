@@ -33,6 +33,7 @@ public class SensorCalibration : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C) && !m_IsCalibrating)
         {
             m_Calibration.gameObject.SetActive(true);
+            m_Calibration.RedoCalibration();
             m_IsCalibrating = true;
         }
 
