@@ -44,9 +44,13 @@ public class SensorCalibration : MonoBehaviour
             {
                 m_IsCalibratingPoint = true;
                 
-            }else if(touchInstance.touchPhase == TouchPhase.Ended && m_IsCalibrating && m_IsCalibratingPoint)
+            }else if (touchInstance.touchPhase == TouchPhase.Moved || touchInstance.touchPhase == TouchPhase.Stationary)
             {
-                m_Calibration.SetSensorInputPoint(touchInstance.rawPosition);
+                m_Calibration.AccumulatePoints(touchInstance.rawPosition);
+            }
+            else if(touchInstance.touchPhase == TouchPhase.Ended && m_IsCalibrating && m_IsCalibratingPoint)
+            {
+                m_Calibration.SetSensorInputPoint();
                 m_IsCalibratingPoint = false;
             }
             else
