@@ -9,7 +9,7 @@ public class Weapon : MonoBehaviour {
     private int m_SeId = 0;
 
 	// Use this for initialization
-	void Start () {
+	public void Init () {
         m_AudioSource = GetComponent<AudioSource>();
 	}
 	
@@ -26,7 +26,7 @@ public class Weapon : MonoBehaviour {
     public void ChangeSe(Weapons weapon)
     {
         m_SeId = (int)weapon;
-        m_AudioSource.clip = m_WeaponSe[(int)weapon];
+        m_AudioSource.clip = m_WeaponSe[m_SeId];
     }
 
 }
