@@ -38,10 +38,8 @@ namespace Tinker
 
             touchCount = 0;
 
-            m_PathToHomographyFile = Application.persistentDataPath + m_PathToHomographyFile;
-
             m_HomographyMatrix = Matrix4x4.identity;
-            LoadHomographyMatrix(m_PathToHomographyFile);
+            LoadHomographyMatrix();
 
             // Currently only support 4 touch inputs
             touches = new List<Touch>();
@@ -53,16 +51,20 @@ namespace Tinker
             touches.Clear();
         }
 
-        public void LoadHomographyMatrix(string path)
+        /// <summary>
+        /// Can be called by the end application after a successful calibration to start modifying the sensor positions to match Unity coordinates.
+        /// </summary>
+        /// <param name="path"></param>
+        public void LoadHomographyMatrix()
         {
             string prefix = Application.persistentDataPath;
-            string fullPath = prefix + path;
+            string fullPath = prefix + m_PathToHomographyFile;
 
             if (File.Exists(fullPath))
             {
                 string text = "init";
 
-                StreamReader reader = new StreamReader(path);
+                StreamReader reader = new StreamReader(fullPath);
                 List<float> homographyFromFile = new List<float>();
                 while (text != null)
                 {
@@ -107,6 +109,14 @@ namespace Tinker
                     m_HomographyMatrix[i,j] = valueToInsert;
                 }
             }
+        }
+
+        /// <summary>
+        /// Used by the calling application when going into calibration mode. Therefore the points returned from the sensor as is and not modified.
+        /// </summary>
+        public void SetHomographyToIdentity()
+        {
+            m_HomographyMatrix = Matrix4x4.identity;
         }
 
         void ProcessInput(string input)

@@ -28,7 +28,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -37,7 +37,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <NoConfig>true</NoConfig>
@@ -62,12 +62,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\App\Player.cs" />
     <Compile Include="Assets\App\Scripts\AudioClipManager.cs" />
     <Compile Include="Assets\App\Scripts\Bonus.cs" />
     <Compile Include="Assets\App\Scripts\BonusSpawner.cs" />
     <Compile Include="Assets\App\Scripts\Bullet.cs" />
     <Compile Include="Assets\App\Scripts\Calibration\SensorCalibration.cs" />
+    <Compile Include="Assets\App\Scripts\CalibrationManager.cs" />
     <Compile Include="Assets\App\Scripts\Enemy.cs" />
     <Compile Include="Assets\App\Scripts\EnemySpawn.cs" />
     <Compile Include="Assets\App\Scripts\Explosion.cs" />
@@ -78,6 +78,7 @@
     <Compile Include="Assets\App\Scripts\MenuManager.cs" />
     <Compile Include="Assets\App\Scripts\MovementJob.cs" />
     <Compile Include="Assets\App\Scripts\ObjectPooler.cs" />
+    <Compile Include="Assets\App\Scripts\Player.cs" />
     <Compile Include="Assets\App\Scripts\PowerUpBonus.cs" />
     <Compile Include="Assets\App\Scripts\RevolvingBackground.cs" />
     <Compile Include="Assets\App\Scripts\ScatterBullet.cs" />
